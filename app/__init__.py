@@ -27,12 +27,6 @@ def create_app(config_class=Config):
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-
-
-
-    # Initialize Flask-Migrate
-    # migrate = Migrate(app, db)
-
     # Register blueprints here
 
     from app.main import main_bp,auth_bp

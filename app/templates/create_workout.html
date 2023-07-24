@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'css/base.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="col-md-4 col-md-offset-4 ms-5">
+  <form method="POST" action="/new-workout">
+    <h2>Add New Workout</h2>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="notification is-danger">
+      {{ messages[0] }}
+    </div>
+    {% endif %} {% endwith %}
+    <div class="form-group">
+      <label for="workout">Workout</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        aria-describedby="workoutHelp"
+        placeholder="Enter the name of your workout"
+      />
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <input
+        type="text"
+        class="form-control"
+        id="notes"
+        name="notes"
+        aria-describedby="workoutHelp"
+        placeholder="any Notes"
+      />
+    </div>
+    <button type="submit" class="btn1">Add Workout</button>
+  </form>
+</div>
+{% endblock %}

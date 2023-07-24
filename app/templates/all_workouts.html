@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'css/base.css') }}"
+/>
+{% endblock %} {% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Workouts</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body class='body-txt'>
+    <div class="container mt-5">
+      <h1>Hi {{ user.name }}</h1>
+      <h1>Your Workouts</h1>
+      <table class="table table-striped mt-3" id="table">
+        <thead >
+          <tr>
+            <th>ID</th>
+            <th>Date Posted</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for workout in workouts %}
+          <tr>
+            <td>{{ workout.id }}</td>
+            <td>{{ workout.date_posted.strftime('%Y-%m-%d') }}</td>
+            <td>{{ workout.notes }}</td>
+            <td>
+              <a
+                href="{{ url_for('main.update_workout', workout_id=workout.id) }}"
+                class="btn1"
+                role="button"
+              >
+                Edit
+              </a>
+            </td>
+            <td>
+              <a
+                href="{{ url_for('main.delete_workout', workout_id=workout.id) }}"
+                class="btn1"
+                role="button"
+              >
+                Delete
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+{% endblock %}
