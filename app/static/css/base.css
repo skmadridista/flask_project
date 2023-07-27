@@ -6,11 +6,19 @@
 
 .navbar-brand {
   font-size: 1.75rem;
+  letter-spacing: 3px;
+  
 }
 
 .navbar {
   background-color: rgba(13, 7, 25, 0.9);
   padding-left: 20px;
+}
+.navbar-toggler{
+  color: #fd634e;
+}
+.navbar-toggler-icon {
+  background-color: #a2ca28;
 }
 
 .nav-link {
@@ -22,15 +30,15 @@
 }
 
 .navbar-nav .nav-link:hover {
-  background-color: #B3D12B;
-  box-shadow:4px 4px 4px #ff6200;
+  background-color:#FFC312;
+  /* box-shadow:4px 4px 4px #ff6200; */
 }
 
 /* static/css/base.css */
 
 .btn1 {
-  color: white;
-  background-color: #ff6200;
+  color: #000000;
+  background-color: #FFC312;
   margin-top: 2px;
   padding:2px 4px;
   border-radius: 5px;
@@ -42,10 +50,12 @@
 
 td a.btn1:hover {
   color: #000000;
-  background-color: #B5CC26;
+  background-color: #ffffff;
+  /* box-shadow: 0 30px 60px 0 rgb(217, 206, 206); */
 }
 td a.btn1{
   text-decoration: none;
+  color: #fff;
 }
 .body-text{
 
@@ -53,11 +63,183 @@ td a.btn1{
 }
 body {
   position: relative;
-  width: 100%;
   height: 100vh;
+  width: 100%;
   background-image: url("../images/hero.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.claim-lockup {
+  position: relative;
+  max-width: 1180px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.claim-lockup .claim {
+  position: absolute;
+  bottom: 150px;
+  left: 115px;
+}
+
+.claim-lockup .claim .headline {
+  margin-bottom: 0;
+  font-size: 40px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.claim-lockup .claim .headline span {
+  color: #a2ca28;
+}
+
+.claim-lockup .claim .kicker {
+  position: relative;
+  left: 158px;
+  margin-top: -10px;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+}
+
+.claim-lockup .claim .kicker span {
+  color: #fd634e;
+}
+
+@media (max-width: 670px) {
+  .claim-lockup .claim {
+    left: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .claim-lockup .claim {
+    left: 30px;
+  }
+  .claim-lockup .claim .headline {
+    font-size: 32px;
+  }
+  .claim-lockup .claim .kicker {
+    left: 128px;
+  }
+}
+
+@media (max-height: 414px) {
+  .claim-lockup .claim {
+    bottom: 85px;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6%;
+  padding-top: 2px;
+  background-color: rgba(13, 7, 25, 0.9);
+
+}
+#pa{
+  text-decoration: none;
+  color: #FFC312;
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('../images/footer.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
 }

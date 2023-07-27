@@ -3,6 +3,30 @@
   <head>
     {% block head %}
 
+    <!--Bootsrap 4 CDN-->
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!--Fontawesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+
     <!-- Include the Bootstrap CSS and JS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -16,9 +40,9 @@
     />
     {% endblock %}
   </head>
-  <body class='body-text'>
+  <body class="body-text">
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="{{ url_for('main.index') }}"
@@ -28,26 +52,30 @@
             height="50"
             viewBox="0 0 150 50"
           >
+            <!-- Background Gradient -->
             <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#92E9D6" />
-                <stop offset="100%" stopColor="#7AE1C7" />
+                <stop offset="0%" stop-color="#FFC312" />
+                <stop offset="100%" stop-color="#FFC312" />
               </linearGradient>
             </defs>
             <rect width="150" height="50" fill="url(#gradient)" rx="8" />
+
+            <!-- Letters S and K -->
             <text
-              x="50%"
-              y="50%"
-              textAnchor="middle"
-              dy=".35em"
+              x="75"
+              y="30"
+              text-anchor="middle"
+              alignment-baseline="middle"
               fill="#FFF"
-              fontFamily="Arial, sans-serif"
-              fontSize="24"
+              font-family="Arial, sans-serif"
+              font-size="28"
+              letter-spacing="-2"
             >
-              SK
+              SK Fitness
             </text>
-          </svg></a
-        >
+          </svg>
+        </a>
 
         <!-- Toggler/collapsibe Button -->
         <button
@@ -70,7 +98,9 @@
               <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('main.user_workouts') }}">All Workouts</a>
+              <a class="nav-link" href="{{ url_for('main.user_workouts') }}"
+                >All Workouts</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('main.profile') }}"
@@ -82,8 +112,7 @@
                 >Add Workout</a
               >
             </li>
-            {% endif %} 
-            {% if not current_user.is_authenticated %}
+            {% endif %} {% if not current_user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
             </li>
@@ -92,8 +121,7 @@
                 >Register</a
               >
             </li>
-            {% endif %} 
-            {% if current_user.is_authenticated %}
+            {% endif %} {% if current_user.is_authenticated %}
             <li class="nav-item">
               <a href="{{ url_for('auth.logout') }}" class="nav-link"
                 >Log Out</a
@@ -105,9 +133,14 @@
       </div>
     </nav>
 
-    {% block content %}
-
-
+    {% block content %} {% endblock %}
+    <!-- Footer -->
+    {% block footer %}
+    <footer class="footer  py-3 bg-dark text-white">
+      <div class="container text-center">
+          <p>&copy; {{ current_year }} Your Website Name. All rights reserved.</p>
+      </div>
+  </footer>
     {% endblock %}
   </body>
 </html>

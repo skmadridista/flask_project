@@ -6,102 +6,66 @@
 />
 
 {% endblock %} {% block content %}
-<section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img
-          src="{{ url_for('static', filename='images/anime-fate-zero.gif') }}"
-          class="img-fluid"
-          alt="Sample image"
-        />
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form method="POST" action="/login" >
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control form-control-lg"
-              placeholder="Enter a valid email address"
-            />
-            <label class="form-label" for="email">Email address</label>
-          </div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control form-control-lg"
-              placeholder="Enter password"
-            />
-            <label class="form-label" for="password">Password</label>
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Sign In</h3>
+          <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-google-plus-square"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
           </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/login">
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="fas fa-user"></i
+                ></span>
+              </div>
               <input
-                class="form-check-input me-2"
-                type="checkbox"
-                value=""
-                id="remember"
-                name="remember"
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="Email"
               />
-              <label class="form-check-label" for="remember">
-                Remember me
-              </label>
             </div>
-          </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button
-              type="submit"
-              class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem"
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+              />
+            </div>
+            <div class="row align-items-center remember">
+              <input type="checkbox" />Remember Me
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn float-right login_btn">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            Don't have an account?<a href="{{ url_for('auth.signup') }}"
+              >Sign Up</a
             >
-              Login
-            </button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">
-              Don't have an account?
-              <a href="{{ url_for('auth.signup')}}" class="link-danger"
-                >Signup</a
-              >
-            </p>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-  <div
-    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary"
-  >
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
-    </div>
-    <!-- Copyright -->
-
-    <!-- Right -->
-    <div>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </div>
-</section>
+</body>
 {% endblock %}
