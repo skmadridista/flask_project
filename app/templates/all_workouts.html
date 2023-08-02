@@ -4,22 +4,12 @@
   href="{{ url_for('static', filename= 'css/base.css') }}"
 />
 {% endblock %} {% block content %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>User Workouts</title>
-    <!-- Include Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-  </head>
-  <body class='body-txt'>
+  <body class="body-txt">
     <div class="container mt-5">
       <h1>Hi {{ user.name }}</h1>
       <h1>Your Workouts</h1>
       <table class="table table-striped mt-3" id="table">
-        <thead >
+        <thead>
           <tr>
             <th>ID</th>
             <th>Title</th>
@@ -30,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for workout in workouts %}
+          {% for workout in workouts.items %}
           <tr>
             <td>{{ workout.id }}</td>
             <td>{{ workout.title }}</td>
@@ -58,8 +48,41 @@
           {% endfor %}
         </tbody>
       </table>
-    </div>
+        <!-- Pagination -->
+        <nav>
+          <ul class="pagination justify-content-center">
+              {% if workouts.has_prev %}
+                  <li class="page-item">
+                      <a class="page-link" href="{{ url_for('main.user_workouts', page=workouts.prev_num) }}">Previous</a>
+                  </li>
+              {% endif %}
+
+              {% for page_num in workouts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
+                  {% if page_num %}
+                      {% if workouts.page == page_num %}
+                          <li class="page-item active">
+                              <span class="page-link">{{ page_num }}</span>
+                          </li>
+                      {% else %}
+                          <li class="page-item">
+                              <a class="page-link" href="{{ url_for('main.user_workouts', page=page_num) }}">{{ page_num }}</a>
+                          </li>
+                      {% endif %}
+                  {% else %}
+                      <li class="page-item disabled">
+                          <span class="page-link">...</span>
+                      </li>
+                  {% endif %}
+              {% endfor %}
+
+              {% if workouts.has_next %}
+                  <li class="page-item">
+                      <a class="page-link" href="{{ url_for('main.user_workouts', page=workouts.next_num) }}">Next</a>
+                  </li>
+              {% endif %}
+          </ul>
+      </nav>
   </body>
-</html>
+
 
 {% endblock %}

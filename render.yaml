@@ -1,0 +1,3 @@
+version: 1
+build:
+  - env: python=3.10

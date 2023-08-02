@@ -40,8 +40,9 @@ def new_workout_post():
 @main_bp.route('/all')
 @login_required
 def user_workouts():
+    page = request.args.get('page',1 ,type=int)
     user = User.query.filter_by(email=current_user.email).first_or_404()
-    workouts = user.workouts
+    workouts = Workout.query.filter_by(author=user).paginate(page=page,per_page=3)
     return render_template('all_workouts.html',workouts=workouts, user=user)
 
 @main_bp.route("/workout/<int:workout_id>/update", methods=['GET', 'POST'])

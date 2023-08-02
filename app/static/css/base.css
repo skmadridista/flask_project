@@ -12,7 +12,6 @@
 
 .navbar {
   background-color: rgba(13, 7, 25, 0.9);
-  padding-left: 20px;
 }
 .navbar-toggler{
   color: #fd634e;
@@ -31,7 +30,6 @@
 
 .navbar-nav .nav-link:hover {
   background-color:#FFC312;
-  /* box-shadow:4px 4px 4px #ff6200; */
 }
 
 /* static/css/base.css */
@@ -69,7 +67,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: hidden;
+  overflow:auto;
   display: flex;
   flex-direction: column;
 }
@@ -242,4 +240,31 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+/* Style for the active page link */
+.page-item.active .page-link {
+    background-color: #FFC312;
+    border-color: #FFC312;
+    color: #fff;
+}
+
+/* Style for the disabled page link (ellipsis) */
+.page-item.disabled .page-link {
+    cursor: default;
+    color: #ffffff;
+    background-color: #FFC312;
+    border-color: #FFC312;
+}
+
+/* Style for the page links */
+.page-link {
+    color: #ffffff;
+    border: 1px solid #FFC312;
+    background-color: #FFC312;
+}
+
+/* Style for the hovered page link */
+.page-link:hover {
+    background-color: #f8f9fa;
+    color: #000;
 }
