@@ -3,5 +3,10 @@
 version: 1
 build:
   - env: python=3.10
+<<<<<<< HEAD
 web:
   - command: gunicorn -b 0.0.0.0:80 app:app
+=======
+  web:
+  - command: gunicorn -b 0.0.0.0:80 app:app
+>>>>>>> a0b5f3ef3aeea1b6d80fcc7548365ddf172ebb89
